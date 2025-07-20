@@ -2,9 +2,32 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.htm',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'angular-tasks';
+  neha:boolean=true;
+  tasks: string[] = [];
+neha2=[{name:'Neha'},{name:'Adarsh'}, {name:'Nancy'}]
+newTask = ''
+
+  changeTitle(){
+    this.title = 'angular-practice-tasks'
+  }
+  toggleHideShow(){
+    this.neha = !this.neha
+  }
+
+  addTask(){
+    let task = this.newTask
+    if(task){
+      this.tasks.push(task)
+      this.newTask = ''
+    }
+  }
+
+  removeTask(i:number){
+    this.tasks.splice(i, 1)
+  }
 }
