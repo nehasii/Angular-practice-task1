@@ -1,0 +1,8 @@
+<h1>Cart</h1>
+<p *ngIf="cartItems.length === 0">Oops! Cart is Empty</p>
+<ul>
+    <li *ngFor="let item of cartItems; index as i">
+        {{item.name}} - {{item.price}}
+        <button (click)="removeProducts(i)">Remove</button>
+    </li>
+</ul>

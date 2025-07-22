@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product-list/product.model';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ export class AppComponent {
   title = 'angular-tasks';
   neha:boolean=true;
   tasks: string[] = [];
+  cart: Product[] = []
 neha2=[{name:'Neha'},{name:'Adarsh'}, {name:'Nancy'}]
 newTask = ''
 
@@ -29,5 +31,14 @@ newTask = ''
 
   removeTask(i:number){
     this.tasks.splice(i, 1)
+  }
+
+  childMessage = ''
+  receiveMessage(message: string){
+    this.childMessage = message
+  }
+
+  handleAddToCart(product: Product){
+    this.cart.push(product)
   }
 }
