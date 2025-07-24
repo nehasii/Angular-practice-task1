@@ -1,0 +1,7 @@
+<p>Login (TDF)</p>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <input name="username" [(ngModel)]="user.username" required placeholder="username"><br><br>
+    <input name="email" [(ngModel)]="user.email" placeholder="email id"><br><br>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
