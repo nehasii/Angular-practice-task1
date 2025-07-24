@@ -1,27 +1,7 @@
-<h1>{{title}}</h1>
-<button (click)="changeTitle()">Change title</button>
-<ul>
-<li *ngFor="let i of neha2">{{i.name}}</li>
-</ul>
-<button (click)="toggleHideShow()">
-    {{neha?'hide':'show'}}
-</button>
-<span *ngIf="neha">Neha</span>
-<br>
-<br>
-<input [(ngModel)]="newTask" placeholder="Enter a task"/>
-<button (click)="addTask()">Add</button>
-<ul>
-    <li *ngFor="let t of tasks; index as i">
-        {{t}}
-        <button (click)="removeTask(i)">Remove</button>
-    </li>
-</ul>
-
-<app-child [message]="'Hello from Parent!'"></app-child>
-
-<app-child2 (messageEvent)="receiveMessage($event)"></app-child2>
-<p>{{childMessage}}</p>
-
-<app-product-list (addToCart)="handleAddToCart($event)"></app-product-list>
-<app-product-cart [cartItems]="cart"></app-product-cart>
+<nav>
+    <a routerLink="/home" routerLinkActive="active">Home</a> 
+    <a routerLink="/products" routerLinkActive="active">Product List</a>
+    <a routerLink="/cart" routerLinkActive="active">Cart List</a>
+</nav>
+<hr>
+<router-outlet></router-outlet>

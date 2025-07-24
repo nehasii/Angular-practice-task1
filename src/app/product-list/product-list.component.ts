@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Product } from './product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,8 +8,9 @@ import { Product } from './product.model';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
-@Output() addToCart = new EventEmitter<Product>()
+// @Output() addToCart = new EventEmitter<Product>()
 
+constructor(private cartService: CartService){}
 products: Product[] = [
     { id: 1, name: 'Tripod', price: 3200 },
     { id: 2, name: 'IPhone 16 pro', price: 120000 },
@@ -16,6 +18,7 @@ products: Product[] = [
 ]
 
 add(product: Product){
-  this.addToCart.emit(product)
+  this.cartService.addToCart(product) 
+  alert(`${product.name} added to the cart successfully!`)
 }
 }

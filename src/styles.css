@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav a{
+    color: rgb(17, 0, 255);
+    text-decoration: none;
+}

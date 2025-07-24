@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-child',
@@ -7,4 +8,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ChildComponent {
   @Input() message!: string
+
+  constructor(private logger: LoginService){
+
+  }
+  logMessage(){
+    this.logger.loginMsg('Button clicked!')
+  }
 }

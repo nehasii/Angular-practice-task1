@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../product-list/product.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-cart',
@@ -9,7 +10,17 @@ import { Product } from '../product-list/product.model';
 export class ProductCartComponent {
 @Input() cartItems: Product[] = []
 
-removeProducts(i:number){
-  this.cartItems.splice(i, 1)
+constructor(private cartService: CartService) {}
+
+ngOnInit(){
+  this.cartItems = this.cartService.getCart()
+}
+
+removeProduct(i: number){
+  this.cartService.removeFromCart(i)
+}
+
+clearCart(){
+  this.cartService.clearCart()
 }
 }
