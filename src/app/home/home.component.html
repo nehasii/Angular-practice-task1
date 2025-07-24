@@ -9,6 +9,9 @@
 <span *ngIf="neha">Neha</span>
 <br>
 <br>
+
+<div class="to-do">
+<h2>To-Do</h2>
 <input [(ngModel)]="newTask" placeholder="Enter a task"/>
 <button (click)="addTask()">Add</button>
 <ul>
@@ -17,6 +20,7 @@
         <button (click)="removeTask(i)">Remove</button>
     </li>
 </ul>
+</div>
 
 <app-child [message]="'Hello from Parent!'"></app-child>
 
